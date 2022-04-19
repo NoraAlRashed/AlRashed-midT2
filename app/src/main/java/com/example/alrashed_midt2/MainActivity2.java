@@ -1,6 +1,4 @@
 package com.example.alrashed_midt2;
-
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -19,7 +17,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
-
 public class MainActivity2 extends AppCompatActivity {
 
     @Override

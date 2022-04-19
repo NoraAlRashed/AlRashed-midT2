@@ -1,5 +1,4 @@
 package com.example.alrashed_midt2;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 public class MainActivity3 extends AppCompatActivity {
 
     @Override

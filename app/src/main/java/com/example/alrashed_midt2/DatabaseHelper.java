@@ -1,5 +1,4 @@
 package com.example.alrashed_midt2;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -8,7 +7,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.SparseArray;
 
 import androidx.annotation.Nullable;
-
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "Mid2.db";

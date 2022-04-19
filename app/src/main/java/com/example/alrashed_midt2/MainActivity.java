@@ -1,9 +1,6 @@
 package com.example.alrashed_midt2;
-
-
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Build;
@@ -18,23 +15,18 @@ import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 public class MainActivity extends AppCompatActivity {
     TextView temperature, Clouds, datetxt;
     Button act2, act3;
@@ -96,10 +88,12 @@ public class MainActivity extends AppCompatActivity {
                 try{
                     Log.d("Nora",response.toString());
                     JSONObject jsonMain=response.getJSONObject("main");
+                    JSONObject jsonSys = response.getJSONObject("sys");
                     JSONArray jsonWeather = response.getJSONArray("weather");
                     JSONObject jsonWeatherObject = jsonWeather.getJSONObject(0);
-                    Clouds.setText("Clouds: "+ jsonMain.getDouble("Clouds"));
+                    String weather = jsonWeatherObject.getString("main");
                     temperature.setText(jsonMain.getDouble("temp")+"°F");
+                    Clouds.setText("Clouds: "+ jsonMain.getDouble("Clouds"));
                 }
                 catch(Exception e){
                 }
