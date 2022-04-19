@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AlRashed-midT2</string>
+    <string-array name="Cities">
+        <item>Athens</item>
+        <item>Riyadh</item>
+        <item>Dammmam</item>
+    </string-array>
 </resources>
