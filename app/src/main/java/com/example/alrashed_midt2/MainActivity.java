@@ -49,34 +49,44 @@ public class MainActivity extends AppCompatActivity {
         act2 = (Button) findViewById(R.id.act2);
         act3 = (Button) findViewById(R.id.act3);
         datetxt = (TextView) findViewById(R.id.datetxt);
-        Calendar c=Calendar.getInstance();
+        Calendar c = Calendar.getInstance();
         DatePicker dp = (DatePicker) findViewById(R.id.datePicker);
-        DateFormat fmtDate=DateFormat.getDateInstance();
+        DateFormat fmtDate = DateFormat.getDateInstance();
         dp.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker datePicker, int i, int i1, int i2) {
-                String day = ""+datePicker.getDayOfMonth();
-                String month =  ""+ (datePicker.getMonth() + 1);
-                String year = ""+ datePicker.getYear();
-
-                datetxt.setText(day+"-"+month+"-"+year);
+                String day = "" + datePicker.getDayOfMonth();
+                String month = "" + (datePicker.getMonth() + 1);
+                String year = "" + datePicker.getYear();
+                datetxt.setText(day + "-" + month + "-" + year);
             }
         });
         act2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,MainActivity2.class));
+                startActivity(new Intent(MainActivity.this, MainActivity2.class));
             }
         });
         act3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,MainActivity3.class));
+                startActivity(new Intent(MainActivity.this, MainActivity3.class));
             }
         });
-        weather("http://api.openweathermap.org/data/2.5/weather?q=Athens&appid=29f685fac873f8f2769ba46d2c221c53&units=imperical");
-    }
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+                String url = "https://api.openweathermap.org/data/2.5/weather?q="
+                        + spinner.getSelectedItem().toString()
+                        + "&appid= 29f685fac873f8f2769ba46d2c221c53&units=imperical";
+                weather(url);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
+    }
     public void weather(String url){
         Log.d("Nora","Succesful initialization of objects from xml");
         JsonObjectRequest jsonObj = new JsonObjectRequest(Request.Method.GET, url,

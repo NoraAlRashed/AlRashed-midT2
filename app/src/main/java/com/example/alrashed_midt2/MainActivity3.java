@@ -36,15 +36,12 @@ public class MainActivity3 extends AppCompatActivity {
                     buffer.append("ID: "+ cur.getString(0) + "\n");
                     buffer.append("National ID: "+ cur.getString(1) + "\n");
                     buffer.append("Name: "+ cur.getString(2) + "\n");
-                    buffer.append("Surname: "+ cur.getString(3) + "\n\n");
                 }
-
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity3.this);
                 builder.setCancelable(true);
                 builder.setTitle("All Results");
                 builder.setMessage(buffer.toString());
                 builder.show();
-
                 Toast.makeText(MainActivity3.this, "Successful View", Toast.LENGTH_LONG).show();
             }
         });
@@ -52,12 +49,12 @@ public class MainActivity3 extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 try {
                     String inp_val = userinp.getText().toString();
                     db.Delete(inp_val);
-                    Log.d("Nora", "after deleting value");
+                    finish();
                     Toast.makeText(MainActivity3.this, "Successful Delete", Toast.LENGTH_LONG).show();
+                    Log.d("Nora", "after deleting value");
                 }
                     catch(Exception e) {
                     String inp_val = userinp.getText().toString();
@@ -68,7 +65,7 @@ public class MainActivity3 extends AppCompatActivity {
         act2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity3.this,MainActivity2.class));
+                startActivity(new Intent(MainActivity3.this, MainActivity2.class));
             }
         });
     }
